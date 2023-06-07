@@ -2,7 +2,7 @@
 #include <vector>
 #include <queue>
 #include <cstring>
-#include <algorithm>
+
 
 #define endl "\n" // 줄바꿈
 #define FAST ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
@@ -19,11 +19,9 @@
 using namespace std; // std 클래스에 있는것을 사용하겠다
 typedef long long ll;
 typedef unsigned long long ull;
-
 int v, flag;
 vector<vector<pii>> tree;
-
-vector<int> dist, visited;
+int dist[100001], visited[100001];
 
 void bfs(int node){
     queue<int> q;
@@ -53,8 +51,7 @@ int main(){
 #endif
     cin >> v;
     tree.resize(v + 1);
-    dist.resize(v + 1);
-    visited.resize(v + 1);
+    
     REP(i, 0, v){
         int s;
         cin >> s;
@@ -74,13 +71,18 @@ int main(){
     REP(i, 2, v){
         if(dist[maxIdx] < dist[i]) maxIdx = i;
     }
-    fill(dist.begin(), dist.end(), 0);
-    fill(visited.begin(), visited.end(), 0);
+    memset(dist, 0, sizeof(dist));
+    memset(visited, 0, sizeof(visited));
     bfs(maxIdx);
 
-    sort(dist.begin(), dist.end());
+    maxIdx = 1;
 
-    cout << dist[v];
+    REP(i, 2, v){
+        if(dist[maxIdx] < dist[i]) maxIdx = i;
+    }
+
+
+    cout << dist[maxIdx];
 
 #ifndef ONLINE_JUDGE
     cout << endl << "elapsed time: " << static_cast<double>(clock() - start) / CLOCKS_PER_SEC << "ms" << endl;
