@@ -3,20 +3,24 @@
 #define endl "\n";
 
 using namespace std;
-long long n, ma;
-long long sum;
+
+int n;
+double sum, m;
+
 int main(void){
+    FAST;
+    
     cin >> n;
-    cin >> ma;
-    sum += ma;
-    for(int i = 0; i < n - 1; i++){
-        long long s;
-        cin >> s;
-        sum += s;
-        if(ma < s) ma = s;
+
+    for(int i = 0; i < n; i++){
+        int score;
+        cin >> score;
+        if(m < score) m = score;
+        sum += score;
     }
-   
-    double res = sum * 100.0 / ma / n;
-    cout << res;
+
+    double avg = sum / m * 100 / n;
+    cout << avg;
+
     return 0;
 }
