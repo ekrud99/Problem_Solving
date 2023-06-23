@@ -19,7 +19,6 @@ bool is_vps(string s){
         else{
             if(stk.empty()){
                 flag = false;
-                //break;
             }else stk.pop();
         }
     }
@@ -45,8 +44,6 @@ int main(void){
         if(is_vps(str[i])) cout << "YES" << endl;
         else cout << "NO" << endl;
     }
-
-
 
     return 0;
 }
