@@ -7,7 +7,7 @@
 using namespace std;
 
 int solution(int n, int m, vector<int> section) {
-    int answer = 0, pos = 0, cnt = 0, i = 0;
+    int answer = 0, cnt = 0;
     
     vector<int> vec;
     vec.resize(n + 1);
