@@ -5,9 +5,6 @@
 #define rep(i, a, b) for(auto i = 0; i < b; ++i)
 
 using namespace std;
-
-
-
 priority_queue<int> pq;
 struct cmp{
     bool operator()(int a, int b){
@@ -22,7 +19,6 @@ int solution(int k, int m, vector<int> score) {
         pq.push(score[i]);
     }
     
-    
     rep(i, 0, score.size() / m){
         q = priority_queue<int, vector<int>, cmp>();
         rep(j, 0, m){
@@ -31,7 +27,6 @@ int solution(int k, int m, vector<int> score) {
         }
         sum += q.top() * m;
     }
-    
     
     return sum;
 }
