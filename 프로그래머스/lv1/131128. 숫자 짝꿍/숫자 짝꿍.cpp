@@ -10,7 +10,6 @@ map<int, int> mp_x, mp_y; // 숫자, 등장 횟수
 int arr[10]; // idx에 해당하는 숫자가 arr[idx]번 공통으로 등장
 string solution(string X, string Y) {
     string answer = "";
-    int len = X.length() > Y.length() ? X.length() : Y.length();
     
     rep(i, 0, X.length()){
         int n = X[i] - '0';
@@ -24,13 +23,8 @@ string solution(string X, string Y) {
     
     rep(i, 0, 10){
         if(mp_x[i] && mp_y[i]){
-            cout << "pass " << i << endl;
             arr[i] = mp_x[i] < mp_y[i] ? mp_x[i] : mp_y[i];
         }
-    }
-    
-    rep(i, 0, 10){
-        cout << arr[i] << " ";
     }
     
     for(int i = 9; i >= 0; i--){
