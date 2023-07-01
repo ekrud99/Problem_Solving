@@ -10,10 +10,8 @@ int solution(vector<vector<int>> sizes) {
     
     rep(i, 0, sizes.size()){
         rep(j, 0, 2){
-            int tmp = sizes[i][0];
             if(sizes[i][0] > sizes[i][1]){
-                sizes[i][0] = sizes[i][1];
-                sizes[i][1] = tmp;    
+                swap(sizes[i][0], sizes[i][1]);
             }
             max_x = max(sizes[i][0], max_x);
             max_y = max(sizes[i][1], max_y);
