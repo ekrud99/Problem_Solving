@@ -69,19 +69,12 @@ string solution(string new_id) {
     string answer = new_id;
     
     answer = step1(answer);
-    cout << "step1 " << answer << endl;
     answer = step2(answer);
-    cout << "step2 " << answer << endl;
     answer = step3(answer);
-    cout << "step3 " << answer << endl;
     answer = step4(answer);
-    cout << "step4 " << answer << endl;
     answer = step5(answer);
-    cout << "step5 " << answer << endl;
     answer = step6(answer);
-    cout << "step6 " << answer << endl;
     answer = step7(answer);
-    cout << "step7 " << answer << endl;
     
     return answer;
 }
