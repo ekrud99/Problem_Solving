@@ -19,15 +19,15 @@ ll calc(ll len){
 ll b_search(){
     ll lo = 1, hi = cable[k - 1];
     ll res = 0;
-    while(lo <= hi){
+    while(lo + 1 < hi){
         ll mid = (lo + hi) / 2;
         if(calc(mid) >= n){
-            res = max(res, mid);
-            lo = mid + 1;
+            lo = mid;
         } 
-        else hi = mid - 1;
+        else hi = mid;
     }
-    return res;
+    if(calc(hi) == n) return hi;
+    return lo;
 }
 
 int main(void){
