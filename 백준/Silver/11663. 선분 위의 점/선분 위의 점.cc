@@ -1,14 +1,21 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
+
+#define FAST ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
+#define rep(i, a, b) for(auto i = a; i < b; ++i)
+#define REP(i, a, b) for(auto i = a; i <= b; ++i)
+#define INF numeric_limits<int>::max()
+#define MIN numeric_limits<int>::min()
+#define pb push_back
 
 using namespace std;
+int n, m;
 
-int main() {
+int main(void){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int n, m;
     cin >> n >> m;
 
     vector<int> dots(n);
@@ -29,3 +36,6 @@ int main() {
 
     return 0;
 }
+
+
+
