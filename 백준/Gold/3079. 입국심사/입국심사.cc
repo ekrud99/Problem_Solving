@@ -8,7 +8,6 @@ using namespace std;
 typedef long long ll;
 
 ll n, m;
-ll mi = INF;
 vector<ll> vec;
 
 bool check(ll t){
@@ -22,7 +21,7 @@ bool check(ll t){
 }
 
 ll b_search(){
-    ll lo = 1;
+    ll lo = 0;
     ll hi = vec[0] * m;
     ll mid;
 
