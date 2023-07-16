@@ -10,23 +10,22 @@ int win_rate;
 
 bool check(ll game){
     ll wr = (y + game) * 100 / (x + game);
-    //cout << "wr: " << wr << endl;
+
     if(wr <= win_rate) return true;
     return false;
 }
 
 ll b_search(){
-    ll lo = 0;
+    ll lo = -1;
     ll hi = x + 1;
     ll mid;
 
     while(lo + 1 < hi){
         mid = (lo + hi) / 2;
-        //cout << "lo: " << lo << " mid: " << mid << " hi: " << hi << endl;
+
         if(check(mid)) lo = mid;
         else hi = mid;
     }
-    //cout << "lo: " << lo << " mid: " << mid << " hi: " << hi << endl;
     return hi;
 }
 
