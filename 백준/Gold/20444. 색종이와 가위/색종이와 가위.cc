@@ -13,7 +13,7 @@ ll check(ll cut){
 
 ll b_search(){ // 가로로 자른 횟수를 찾음
     ll lo = -1;
-    ll hi = (n - lo) + 1;
+    ll hi = n - lo;
 
     while(lo + 1 < hi){
         ll mid = (lo + hi) / 2;
