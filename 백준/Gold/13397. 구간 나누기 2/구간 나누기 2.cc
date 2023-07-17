@@ -31,11 +31,9 @@ int b_search(){
     while(lo + 1 < hi){
         mid = (lo + hi) / 2;
 
-        //cout << lo << " " << mid << " " << hi << endl;
         if(!check(mid)) lo = mid;
         else hi = mid;
     }
-    //cout << lo << " " << mid << " " << hi << endl;
     return hi;
 }
 
