@@ -10,7 +10,7 @@
 using namespace std;
 
 int n, m, diff;
-int parent[21][100001];
+int parent[20][100001];
 vector<vector<int>> tree;
 vector<int> depth, visited;
 
