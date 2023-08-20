@@ -9,7 +9,7 @@ using namespace std;
 typedef long long ll;
 
 int n;
-priority_queue<ll> pq;
+priority_queue<int> pq;
 
 int main(void){
     FAST;
@@ -19,7 +19,7 @@ int main(void){
     cin >> n;
 
     rep(i, 0, n){
-        ll num;
+        int num;
         cin >> num;
         if(num == 0){ // 0이 입력된 경우 max heap의 top을 출력
             if(pq.empty()) cout << 0 << endl;
