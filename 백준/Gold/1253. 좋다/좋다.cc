@@ -29,7 +29,7 @@ int main(void){
     int res = 0;
 
     rep(i, 0, n){
-        long target = vec[i]; // 판단할 수
+        int target = vec[i]; // 판단할 수
         int left = 0;
         int right = n - 1;
 
