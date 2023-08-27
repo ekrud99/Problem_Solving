@@ -38,7 +38,6 @@ int main(void){
     }
 
     for(char c : lst) cout << c;
-    cout << endl;
 
     return 0;
 }
