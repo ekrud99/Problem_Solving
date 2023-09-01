@@ -8,43 +8,28 @@
 
 using namespace std;
 
-unordered_map<string, int> in, out;
+unordered_map<string, bool> in, out; // key: nickname, value: check
 
-int s, e, q, cnt;
-string str;
+string s, e, q;
+int cnt;
 
 int main(void){
     FAST;
 
     // freopen("input.txt", "r", stdin);
 
-    rep(i, 0, 3){
-        string t;
-        cin >> str;
-        rep(j, 0, 5){
-            if(str[j] == ':') continue;
-            t += str[j];
-        }
-        if(i == 0) s = stoi(t);
-        else if(i == 1) e = stoi(t);
-        else q = stoi(t);
-    }
+    cin >> s >> e >> q;
+
     while(1){
-        string logg, nickname, tmp;
+        string logg, nickname;
         cin >> logg >> nickname;
+
         if(logg == "" && nickname == "") break;
-        rep(j, 0, 5){
-            if(logg[j] == ':') continue;
-            tmp += logg[j];
-        }
-        int ti = stoi(tmp);
-        if(ti <= s) in[nickname] = ti;
-        else if(ti >= e && ti <= q && out[nickname] == 0){
-            ++out[nickname];
-            if(in[nickname] != 0){
-                ++cnt;
-                //cout << nickname << endl;
-            } 
+        
+        if(logg <= s) in[nickname] = true;
+        else if(logg >= e && logg <= q && !out[nickname]){
+            out[nickname] = true;
+            if(in[nickname]) ++cnt;
         }
     }
 
