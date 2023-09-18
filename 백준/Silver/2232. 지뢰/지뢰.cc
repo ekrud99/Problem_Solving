@@ -33,7 +33,7 @@ int main(void){
         if(vec[i].second >= vec[i - 1].second && vec[i].second >= vec[i + 1].second) res.push_back(vec[i]);
     }
 
-    sort(res.begin(), res.end());
+    // sort(res.begin(), res.end());
 
     for(auto i : res) cout << i.first << endl;
 
