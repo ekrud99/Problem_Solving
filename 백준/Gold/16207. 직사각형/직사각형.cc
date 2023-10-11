@@ -16,10 +16,16 @@ using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
 
-ll n, res, cnt = 2, cur = 1;
+int n, cnt = 2;
+ll res, cur = 1;
 
 int main(){
     FAST;
+
+#ifndef ONLINE_JUDGE
+    clock_t start = clock();
+    freopen("input.txt", "r", stdin);
+#endif
 
     cin >> n;
     vector<int> lines(n);
@@ -34,37 +40,27 @@ int main(){
 
     rep(i, 1, n){
         int line = lines[i];
-        bool flag = false;
-        // cout << "i: " << i << " pre_line: " << pre_line << " line: " << line << endl; 
 
-        if(pre_line == line){
+        if(pre_line - line <= 1){
             cur *= line;
             --cnt;
             ++i;
             pre_line = lines[i];
-            flag = true;
-        }else if(pre_line - 1 == line){
-            cur *= line;
-            --cnt;
-            ++i;
-            pre_line = lines[i];
-            flag = true;
-        } // 5 4 3 2
-        // 6 6 5 4 4 3
-        // cout << "cur: " << cur << " res: " << res << endl;
-
-        if(!flag) pre_line = line;
+        }
+        else pre_line = line;
 
         if(!cnt){
             res += cur;
             cur = 1;
             cnt = 2;
         } 
-
     }
-    // 10 6 6 6 5 4 4 4 3
 
     cout << res;
+
+#ifndef ONLINE_JUDGE
+    cout << endl << "elapsed time: " << static_cast<double>(clock() - start) / CLOCKS_PER_SEC << "ms" << endl;
+#endif
 
     return 0;
 }
