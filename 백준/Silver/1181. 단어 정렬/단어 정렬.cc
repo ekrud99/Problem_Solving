@@ -1,7 +1,6 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <unordered_map>
+#include <set>
+#include <string>
 
 #define FAST ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
 #define rep(i, a, b) for(auto i = a; i < b; ++i)
@@ -9,14 +8,17 @@
 
 using namespace std;
 
-bool compare(string word1, string word2){
-    if(word1.length() < word2.length()) return true;
-    else if(word1.length() > word2.length()) return false;
-    return word1 < word2;
-}
+struct compare{
+    bool operator()(const string& a, const string& b)const{
+        if(a.length() < b.length()) return true;
+        else if(a.length() > b.length()) return false;
+        return a < b;
+    }
+};
 
 int n;
 string word;
+set<string, compare> s;
 
 int main(void){
     FAST;
@@ -24,17 +26,13 @@ int main(void){
     // freopen("input.txt", "r", stdin);
 
     cin >> n;
-    vector<string> words;
-    unordered_map<string, bool> check;
 
     rep(i, 0, n){
         cin >> word; 
-        if(check[word]) continue;
-        check[word] = true;
-        words.push_back(word);
+        s.insert(word);
     } 
-    sort(words.begin(), words.end(), compare);
-    for(string word : words) cout << word << endl;
+
+    for(string word: s) cout << word << endl;
 
     return 0;
 }
