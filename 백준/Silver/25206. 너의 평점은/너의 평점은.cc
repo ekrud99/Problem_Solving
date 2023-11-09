@@ -8,7 +8,7 @@
 using namespace std;
 
 string subject, grade;
-double credit, gpa = 0.0, total_credit = 0.0;
+double credit, gpa , total_credit;
 
 double convertGrade(std::string grade) {
     if (grade == "A+") return 4.5;
