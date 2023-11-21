@@ -19,8 +19,8 @@ int main(void){
     vector<int> vec(n);
 
     rep(i, 0, n) cin >> vec[i];
-    sort(vec.begin(), vec.end());
-    cout << vec[k - 1];
-
+    --k;
+    nth_element(vec.begin(), vec.begin() + k, vec.end());
+    cout << vec[k];
     return 0;
 }
