@@ -27,7 +27,7 @@ int main(void){
         ggultong[i] %= m;
     }
 
-    if(k <= 0) cout << (ll)m * t;
+    if(k <= 0) cout << m * t;
     else{
         sort(ggultong.begin(), ggultong.end(), greater<int>());
         int lc = n < k ? n : k;
