@@ -28,7 +28,7 @@ int main(void){
         int sum = vec[l] + vec[r];
         if(sum == x){
             ++res;
-            ++l;
+            --r;
         }else if(sum < x){
             ++l;
         }else{
