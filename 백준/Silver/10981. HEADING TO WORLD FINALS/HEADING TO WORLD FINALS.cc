@@ -1,5 +1,5 @@
 #include <iostream>
-#include <map>
+#include <unordered_map>
 #include <algorithm>
 
 #define FAST ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
@@ -16,7 +16,7 @@ struct Team {
 int n, k, prob, pen, cnt = 0;
 string univ, name;
 vector<Team> vec;
-map<string, bool> mp;
+unordered_map<string, bool> mp;
 
 bool cmp(Team t1, Team t2){
     if(t1.prob != t2.prob) return t1.prob > t2.prob;
