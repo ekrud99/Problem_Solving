@@ -12,7 +12,7 @@ int main(void){
 
     // freopen("input.txt", "r", stdin);
 
-    long long n, m, total, sum = 0;
+    long long n, total, sum = 0;
     cin >> n;
     vector<long long> vec(n);
 
