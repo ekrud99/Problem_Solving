@@ -22,10 +22,6 @@ int main(void){
             ++res;
             cur = vec[i];
             continue;
-        }else if(cur + vec[i] == m){
-            ++res;
-            cur = 0;
-            continue;
         }
         cur += vec[i];
     }
