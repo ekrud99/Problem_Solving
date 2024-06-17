@@ -28,7 +28,6 @@ int main(void){
 
     while(!pq.empty() && d <= pq.top()){
         ++cnt;
-        if(pq.empty()) break;
         if(pq.top() >= d){
             pq.push(pq.top() - 1);
             pq.pop();
