@@ -1,12 +1,10 @@
 import Foundation
 
 func convertMinute(_ inTime: String, _ outTime: String) -> Int {
-    let inTimeStr = inTime.split(separator: ":")
-                            .map { Int($0)! }
-    let outTimeStr = outTime.split(separator: ":")
-                            .map { Int($0)! }
-    let hour = (outTimeStr[0] - inTimeStr[0]) * 60
-    let minute = outTimeStr[1] - inTimeStr[1]
+    let inTimeStr = inTime.map { String($0) }
+    let outTimeStr = outTime.map { String($0) } 
+    let hour = (Int(outTimeStr[0] + outTimeStr[1])! - Int(inTimeStr[0] + inTimeStr[1])!) * 60
+    let minute = (Int(outTimeStr[3] + outTimeStr[4])! - Int(inTimeStr[3] + inTimeStr[4])!)
     let total = hour + minute
     
     return total
