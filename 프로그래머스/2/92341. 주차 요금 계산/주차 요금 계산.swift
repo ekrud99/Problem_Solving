@@ -4,9 +4,9 @@ func convertMinute(_ inTime: String, _ outTime: String) -> Int {
     let inTimeStr = inTime.split(separator: ":")
                             .map { Int($0)! }
     let outTimeStr = outTime.split(separator: ":")
-                            .map { Int($0) }
-    let hour = (outTimeStr[0]! - inTimeStr[0]) * 60
-    let minute = outTimeStr[1]! - inTimeStr[1]
+                            .map { Int($0)! }
+    let hour = (outTimeStr[0] - inTimeStr[0]) * 60
+    let minute = outTimeStr[1] - inTimeStr[1]
     let total = hour + minute
     
     return total
