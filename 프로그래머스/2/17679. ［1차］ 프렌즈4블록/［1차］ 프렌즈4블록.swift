@@ -3,8 +3,6 @@ struct Pos: Hashable {
     var j: Int
 }
 
-var set: Set<Pos> = []
-
 func find4(_ i: Int, _ j: Int, _ board: [[String]]) -> Bool {
     let block = board[i][j]
     if block == "*" { return false }
@@ -12,7 +10,7 @@ func find4(_ i: Int, _ j: Int, _ board: [[String]]) -> Bool {
     return false
 }
 
-func calcPoint(_ pos: [Pos], _ board: inout [[String]]) -> Int {
+func calcPoint(_ pos: [Pos], _ board: inout [[String]], _ set: inout Set<Pos>) -> Int {
     var res = 0
     
     for p in pos {
@@ -46,18 +44,10 @@ func moveBlock(_ m: Int, _ n: Int, _ board: inout [[String]]) {
     }
 }
 
-func printBoard(_ m: Int, _ n: Int, _ board: [[String]]) {
-    for i in 0..<m {
-        for j in 0..<n {
-            print(board[i][j], terminator: "")
-        }
-        print()
-    }
-}
-
 func solution(_ m:Int, _ n:Int, _ board:[String]) -> Int {
     var fBoard = [[String]](repeating: [], count: m)
     var pos: [Pos] = []
+    var set: Set<Pos> = []
     var res = 0
     
     for i in 0..<board.count {
@@ -73,7 +63,7 @@ func solution(_ m:Int, _ n:Int, _ board:[String]) -> Int {
         }
         if pos.isEmpty { break }
         
-        res += calcPoint(pos, &fBoard)
+        res += calcPoint(pos, &fBoard, &set)
         moveBlock(m, n, &fBoard)
         set.removeAll()
         pos.removeAll()
@@ -81,5 +71,3 @@ func solution(_ m:Int, _ n:Int, _ board:[String]) -> Int {
     
     return res
 }
-
-
