@@ -4,8 +4,6 @@ func compress(_ str: String, _ unit: Int) -> Int {
     var compStr = str
     var compList: [String] = []
     var result = ""
-    var idx = 0
-    let lc = str.count
     
     while true {
         if compStr == "" { break }
@@ -26,23 +24,18 @@ func compress(_ str: String, _ unit: Int) -> Int {
         if compList[l] == compList[r] {
             cnt += 1
             r += 1
-        } else {
+        } 
+        else {
             if cnt > 1 { result += String(cnt) + compList[l] }
-            else { 
-                result += compList[l] 
-            }
+            else { result += compList[l] }
             l = r
             r += 1
             cnt = 1
         }
     }
     
-    if cnt != 1 {
-        result += String(cnt) + compList[l]
-    } else {
-        result += compList[r - 1]
-    }
-    
+    if cnt != 1 { result += String(cnt) + compList[l] } 
+    else { result += compList[r - 1] }
     
     return result.count
 }
